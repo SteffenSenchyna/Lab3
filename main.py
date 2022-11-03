@@ -6,6 +6,8 @@ def globalConfigCall():
     globalConfig.loadDirectories()
     globalConfig.deployCMDS()
 
+
+
 menu = {
     "1": globalConf.config
 }
@@ -28,5 +30,4 @@ while True:
         functionCall()
     else:
         print("Please Select a Correct Menu Option")
-
 
