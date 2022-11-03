@@ -1,7 +1,9 @@
 from app import globalConf
 
+
+
 menu = {
-    1: globalConf.config()
+    "1": globalConf.config
 }
 print("""
 Menu
@@ -13,3 +15,12 @@ Menu
 
 response = input("Select a menu option")
 print("test")
+
+while True:
+    response = input("Select a menu option:")
+    if response in menu.keys():
+        functionCall = menu[response]
+        functionCall()
+    else:
+        print("Please Select a Correct Menu Option")
+
