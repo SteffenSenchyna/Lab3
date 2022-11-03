@@ -1,0 +1,3 @@
+def config():
+    print("Global")
+
