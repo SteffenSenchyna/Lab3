@@ -12,3 +12,4 @@ Menu
 """)
 
 response = input("Select a menu option")
+print("test")
