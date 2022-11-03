@@ -65,9 +65,6 @@ class globalconfiguration():
                 net_connect.disconnect()
         print('Commands have been deployed')
 
-config = globalconfiguration()
-config.directoryCheck()
-config.loadDirectories()
-config.deployCMDS()
+
 
 
