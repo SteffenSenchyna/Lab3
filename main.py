@@ -7,7 +7,7 @@ def globalConfigCall():
     globalConfig.deployCMDS()
 
 menu = {
-    "1": globalConfigCall
+    "1": globalConf.config
 }
 
 print("""
