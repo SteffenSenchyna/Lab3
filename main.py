@@ -1,10 +1,17 @@
 from app import globalConf
+globalConfig = globalConf.globalconfiguration()
+
+def globalConfigCall():
+    globalConfig.directoryCheck()
+    globalConfig.loadDirectories()
+    globalConfig.deployCMDS()
 
 
 
 menu = {
     "1": globalConf.config
 }
+
 print("""
 Menu
 1)Global

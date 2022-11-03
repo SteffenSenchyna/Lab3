@@ -1,0 +1,23 @@
+[
+    {
+        "IP": "10.0.10.11",
+        "cmds": [
+            "hostname R1",
+            "loginBanner This is a test banner"
+        ]
+    },
+    {
+        "IP": "10.0.10.12",
+        "cmds": [
+            "hostname R2",
+            "loginBanner This is a test banner"
+        ]
+    },
+    {
+        "IP": "10.0.10.13",
+        "cmds": [
+            "hostname R3",
+            "loginBanner This is a test banner"
+        ]
+    }
+]
