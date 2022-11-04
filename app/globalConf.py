@@ -12,7 +12,7 @@ class globalconfiguration():
         self.password = ""
         self.filepath_cmd = "None"
         self.filepath_ip = "None"
-
+    
     def directoryCheck(self):
         #Checks to see if there is proper file structure and creates directories if needed
         self.directoryIP = str(pathlib.Path(__file__).parent.resolve())+"\IPs"
