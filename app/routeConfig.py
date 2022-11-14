@@ -120,11 +120,8 @@ class routeconfiguration():
                 asystem = self.validateInput(f"Enter EIGRP AS for {ipAddress}: ")
                 if asystem =="quit":
                     break
-                routerID = self.validateInput("Enter router EIGRP ID: ")
                 fullAS = "router eigrp " + str(asystem)                 
-                fullRouterID = "eigrp router " +str(routerID)
                 self.routeCMDS[counter]["CMDS"].append(fullAS)
-                self.routeCMDS[counter]["CMDS"].append(fullRouterID)
                 while True:
                     print("Input quit to stop EIGRP network input")
                     self.eigrpNet = self.validateIP("Enter network address: ")
@@ -141,23 +138,26 @@ class routeconfiguration():
         print(self.routeCMDS)
         
     def deployCMDS(self):
-        device = {
-            'device_type': 'cisco_ios',
-            'host': 'ip',
-            'username': self.username,
-            'password': self.password,
-            'secret': self.secret
-            }
+
         if not self.routeCMDS:
             print("Please build a script to deploy")
         else: 
             for i in self.routeCMDS:
+                device = {
+                'device_type': 'cisco_ios',
+                'host': i["IP"],
+                'username': self.username,
+                'password': self.password,
+                'secret': self.secret
+                }
                 print("Connecting to ", i["IP"])
                 net_connect = ConnectHandler(**device)
+                net_connect.enable()
                 net_connect.config_mode()
                 check = net_connect.check_config_mode()
                 if check == True:
-                    outp = net_connect.send_config_set(i["CMDS"])
+                    print("Deploying commands")
+                    output = net_connect.send_config_set(i["CMDS"])
                     print("Disconnecting")
                     net_connect.disconnect()
                 else:
@@ -199,6 +199,3 @@ class routeconfiguration():
                 break
             else:
                 print("Please Select a Correct Menu Option")
-
-obj = routeconfiguration()
-obj.menu()
