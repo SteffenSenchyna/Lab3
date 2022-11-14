@@ -4,6 +4,7 @@ import pathlib
 import sys
 import os
 import json
+import csv
 
 class globalconfiguration():
     def __init__(self):
@@ -12,7 +13,7 @@ class globalconfiguration():
         self.password = ""
         self.filepath_cmd = "None"
         self.filepath_ip = "None"
-
+    
     def directoryCheck(self):
         #Checks to see if there is proper file structure and creates directories if needed
         self.directoryIP = str(pathlib.Path(__file__).parent.resolve())+"\IPs"
@@ -56,7 +57,7 @@ class globalconfiguration():
             net_connect.config_mode()
             check = net_connect.check_config_mode()
             if check == True:
-                outp = net_connect.send_config_set(i["cmds"])
+                outp = net_connect.send_config_set(i["cmds"], use_textfsm=True)
                 print("Disconnecting")
                 net_connect.disconnect()
             else:
