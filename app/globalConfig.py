@@ -43,15 +43,15 @@ class globalconfiguration():
                 print("Please Select a Listed File")
     
     def deployCMDS(self):
-        device = {
-            'device_type': 'cisco_ios',
-            'host': 'ip',
-            'username': '%s' % self.username,
-            'password': '%s' % self.password
-            }
         f = open(self.filepath_cmd)
         cmdJSON = json.load(f)
         for i in cmdJSON:
+            device = {
+            'device_type': 'cisco_ios',
+            'host': i["IP"],
+            'username': '%s' % self.username,
+            'password': '%s' % self.password
+            }
             print("Connecting to ", i["IP"])
             net_connect = ConnectHandler(**device)
             net_connect.config_mode()
