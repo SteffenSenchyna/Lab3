@@ -1,5 +1,5 @@
-from app import globalConf
-globalConfig = globalConf.globalconfiguration()
+from app import globalConfig
+globalConfig = globalConfig.globalconfiguration()
 
 def globalConfigCall():
     globalConfig.directoryCheck()
@@ -9,7 +9,7 @@ def globalConfigCall():
 
 
 menu = {
-    "1": globalConf.config
+    "1": globalConfig.config
 }
 
 print("""
@@ -28,6 +28,8 @@ while True:
     if response in menu.keys():
         functionCall = menu[response]
         functionCall()
+    elif response == "5":
+        break
     else:
         print("Please Select a Correct Menu Option")
 
