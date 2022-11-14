@@ -4,6 +4,7 @@ import pathlib
 import sys
 import os
 import json
+import csv
 
 class globalconfiguration():
     def __init__(self):
@@ -56,7 +57,7 @@ class globalconfiguration():
             net_connect.config_mode()
             check = net_connect.check_config_mode()
             if check == True:
-                outp = net_connect.send_config_set(i["cmds"])
+                outp = net_connect.send_config_set(i["cmds"], use_textfsm=True)
                 print("Disconnecting")
                 net_connect.disconnect()
             else:
