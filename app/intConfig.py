@@ -108,11 +108,12 @@ class intconfiguration():
                 if int =="quit":
                     break
                 self.intIP = self.validateIP("Enter an interface IP address: ")
-                intSubnet = self.validateSubnet("Enter a subnet (X.X.X.X): ")
+                intSubnet = self.validateSubnet("Enter a subnet: ")
                 fullInt = "int " + str(int)                 
                 fullAddress = "ip address " + str(self.intIP) + " " + str(intSubnet)
                 self.interfaceCMDS[counter]["CMDS"].append(fullInt)
                 self.interfaceCMDS[counter]["CMDS"].append(fullAddress)
+                self.interfaceCMDS[counter]["CMDS"].append("no shutdown")
                 interfaces += 1
             print(f"{ipAddress} has {interfaces} interfaces configured")
             counter += 1
@@ -169,12 +170,12 @@ class intconfiguration():
 
         while True:
             print("""
-    Menu
-    1)Build Interface Script
-    2)Show Interface Script 
-    3)Deploy Interface Script
-    4)Erase Interface Script
-    5)Exit
+Interface Menu
+1)Build Interface Script
+2)Show Interface Script 
+3)Deploy Interface Script
+4)Erase Interface Script
+5)Exit
             """)
             response = input("Select a menu option: ")
             if response in menu.keys():

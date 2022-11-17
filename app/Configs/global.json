@@ -1,0 +1,72 @@
+[
+    {
+        "IP": "10.0.10.51",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.52",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.53",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.54",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.55",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.56",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.57",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.58",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.59",
+        "cmds": [
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    },
+    {
+        "IP": "10.0.10.60",
+        "cmds": [  
+            "banner motd c MOTD Banner c",
+            "banner login c Login Banner c"
+        ]
+    }
+]
