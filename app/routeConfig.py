@@ -114,7 +114,6 @@ class routeconfiguration():
                     "CMDS": []
                     })
             while True:
-                print(counter)
                 networks = 0
                 print(f"Input quit to exit the routing script for {ipAddress}")
                 asystem = self.validateInput(f"Enter EIGRP AS for {ipAddress}: ")
