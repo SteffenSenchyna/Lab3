@@ -80,7 +80,9 @@ class routeconfiguration():
                     print(e)     
         return netmask
 
+
     def validateWildcard(self, prompt):
+        #Returns hostmask instead of subnet, but takes subnet mask input  
         while True:
             value = input(prompt)
             #Error handling
@@ -96,10 +98,13 @@ class routeconfiguration():
                     hostmask = subnetCheck.hostmask
                     break
                 except Exception as e:
-                    print(e)     
+                    print(e)   
         return hostmask
 
     def buildScript(self):
+        #This function builds the config file in the format of files located in the app/Configs Folder
+        #Works in a layered format, user inputs an ip then can enter a as many eigrp AS's and as many networks for each AS
+        #The user just has to enter quit to jump back up a config layer, similiar to the cd .. command 
         self.username = self.validateInput("Enter username: ")
         self.password = self.validateInput("Enter password: ")
         self.secret = self.validateInput("Enter secret: ")

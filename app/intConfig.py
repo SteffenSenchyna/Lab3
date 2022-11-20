@@ -88,6 +88,8 @@ class intconfiguration():
         return netmask
 
     def buildScript(self):
+        #This function builds the config file in the format of files located in the app/Configs Folder
+        #Works in a layered format, user inputs an ip then can enter a as many interfaces as they want until they input quit
         self.username = self.validatedInput("Enter username: ")
         self.password = self.validatedInput("Enter password: ")
         self.secret = self.validatedInput("Enter secret: ")
@@ -119,9 +121,11 @@ class intconfiguration():
             counter += 1
 
     def displayCMDS(self):
+        #Displays commands 
         print(self.interfaceCMDS)
         
     def deployCMDS(self):
+        #Deploys commands build from the script building function
         if not self.interfaceCMDS:
             print("Please build a script to deploy")
         else: 
@@ -140,6 +144,7 @@ class intconfiguration():
                     net_connect.config_mode()
                     check = net_connect.check_config_mode()
                     if check == True:
+                        #Bulk Deploy of commands from the build script
                         output = net_connect.send_config_set(i["CMDS"])
                         print("Deploying commands")
                         print("Disconnecting")

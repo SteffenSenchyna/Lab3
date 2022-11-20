@@ -40,9 +40,11 @@ class globalconfiguration():
             pass       
 
     def loadDirectories(self):
+        #loads Directories located in the app folder
         directoryConfig = str(self.directoryConfig)
         filelistConfig = os.listdir(directoryConfig)
         while True:
+            #Shows the available config files in the in the config folder
             print(filelistConfig)
             response = input("Please Select a Configuration File: ")
             if ".json" in response:
@@ -57,6 +59,7 @@ class globalconfiguration():
                 print("Please Select a Listed File")
     
     def deployCMDS(self):
+        #Deploys the commands in the config file by reading the the JSON list and deploying the commmands for each IP
         try:
             self.username = self.validatedInput("Enter username: ")
             self.password = self.validatedInput("Enter password: ")
