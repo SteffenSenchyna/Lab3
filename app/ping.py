@@ -139,4 +139,3 @@ def validated_input(prompt):
     return value
             
 
-main()

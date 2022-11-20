@@ -141,29 +141,32 @@ class routeconfiguration():
         if not self.routeCMDS:
             print("Please build a script to deploy")
         else: 
-            for i in self.routeCMDS:
-                device = {
-                'device_type': 'cisco_ios',
-                'host': i["IP"],
-                'username': self.username,
-                'password': self.password,
-                'secret': self.secret
-                }
-                print("Connecting to ", i["IP"])
-                net_connect = ConnectHandler(**device)
-                net_connect.enable()
-                net_connect.config_mode()
-                check = net_connect.check_config_mode()
-                if check == True:
-                    print("Deploying commands")
-                    output = net_connect.send_config_set(i["CMDS"])
-                    print("Disconnecting")
-                    net_connect.disconnect()
-                else:
-                    print('Unable to enter configure terminal for ', i["IP"])
-                    print("Disconnecting")
-                    net_connect.disconnect()
-            print('Commands have been deployed')    
+            try:
+                for i in self.routeCMDS:
+                    device = {
+                    'device_type': 'cisco_ios',
+                    'host': i["IP"],
+                    'username': self.username,
+                    'password': self.password,
+                    'secret': self.secret
+                    }
+                    print("Connecting to ", i["IP"])
+                    net_connect = ConnectHandler(**device)
+                    net_connect.enable()
+                    net_connect.config_mode()
+                    check = net_connect.check_config_mode()
+                    if check == True:
+                        print("Deploying commands")
+                        output = net_connect.send_config_set(i["CMDS"])
+                        print("Disconnecting")
+                        net_connect.disconnect()
+                    else:
+                        print('Unable to enter configure terminal for ', i["IP"])
+                        print("Disconnecting")
+                        net_connect.disconnect()
+                print('Commands have been deployed')    
+            except Exception as e:
+                print(e)
     
     def eraseCMDS(self):
         self.routeCMDS = []
@@ -183,12 +186,12 @@ class routeconfiguration():
 
         while True:
             print("""
-            Menu
-            1)Build Routing Script (EIGRP)
-            2)Show Routing Script 
-            3)Deploy Routing Script
-            4)Erase Routing Script
-            5)Exit
+Routing Menu
+1)Build Routing Script (EIGRP)
+2)Show Routing Script 
+3)Deploy Routing Script
+4)Erase Routing Script
+5)Exit
             """)
             response = input("Select a menu option: ")
             if response in menu.keys():

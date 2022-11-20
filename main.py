@@ -1,7 +1,8 @@
-from app import globalConfig, intConfig, routeConfig
+from app import globalConfig, intConfig, routeConfig, ping
 globalConfig = globalConfig.globalconfiguration()
 intConfig = intConfig.intconfiguration()
 routeConfig = routeConfig.routeconfiguration()
+
 def globalConfigCall():
     globalConfig.directoryCheck()
     globalConfig.loadDirectories()
@@ -13,23 +14,28 @@ def intConfigCall():
 def routeConfigCall():
     routeConfig.menu()
 
+def pingCall():
+    ping.main()
+
 menu = {
     "1": globalConfigCall,
     "2": intConfigCall,
-    "3": routeConfigCall
+    "3": routeConfigCall,
+    "4": pingCall
 }
 
 
 
 while True:
     print("""
-    Menu
-    1)Global
-    2)Interface
-    3)Dynamic Routing
-    4)Ping Test
+Menu
+1)Global
+2)Interface
+3)Dynamic Routing
+4)Ping Test
+5)Exit
     """)
-    response = input("Select a menu option:")
+    response = input("Select a menu option: ")
     if response in menu.keys():
         functionCall = menu[response]
         functionCall()
