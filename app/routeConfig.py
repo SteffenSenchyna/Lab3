@@ -131,7 +131,7 @@ class routeconfiguration():
                     self.eigrpNet = self.validateIP("Enter network address: ")
                     if self.eigrpNet == "quit":
                         break
-                    ipWildcard = self.validateWildcard("Enter a subnet (X.X.X.X): ")
+                    ipWildcard = self.validateWildcard("Enter a subnet: ")
                     fullNetwork = "network " + str(self.eigrpNet) + " " + str(ipWildcard)
                     self.routeCMDS[counter]["CMDS"].append(fullNetwork)
                     networks += 1

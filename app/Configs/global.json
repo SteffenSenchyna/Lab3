@@ -2,8 +2,10 @@
     {
         "IP": "10.0.10.51",
         "cmds": [
-            "banner motd c MOTD Banner c",
-            "banner login c Login Banner c"
+            "int g0/1",
+            "ip address 10.0.20.30.51 255.255.255.0",
+            "int g0/2",
+            "ip address 10.0.20.35 255.255.255.0"    
         ]
     },
     {
